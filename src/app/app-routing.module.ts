@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnasayfaComponent } from './anasayfa/anasayfa.component';
+import { AdminGuard } from './guards/admin-guard';
 import { KategoriEklemeComponent } from './kategori-ekleme/kategori-ekleme.component';
 import { OturumComponent } from './oturum/oturum.component';
 import { UrunDetaySayfasiComponent } from './urun-detay-sayfasi/urun-detay-sayfasi.component';
@@ -15,11 +16,11 @@ const routes: Routes = [
   },
   {
     path:'urunler/ekleme',
-    component:UrunEklemeComponent
+    component:UrunEklemeComponent,canActivate:[AdminGuard]
   },
   {
     path:'kategoriler/ekleme',
-    component:KategoriEklemeComponent
+    component:KategoriEklemeComponent,canActivate:[AdminGuard]
   },
   {
     path:'urunler',
