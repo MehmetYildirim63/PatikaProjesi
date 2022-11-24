@@ -1,0 +1,9 @@
+<div class="list-group">
+   <a (click)="kategoriSecimi()"  class="list-group-item list-group-item-action " [class.active]="displayAll" routerLink="/urunler">
+    Tüm Kategoriler
+  </a>
+
+  <a  *ngFor="let kategori of kategoriler" routerLink="urunler/kategori/{{kategori.id}}"   class="list-group-item list-group-item-action " (click)="kategoriSecimi(kategori)" [class.active]="kategori==selectedKategori" >
+    {{kategori.name}}
+  </a>
+</div>

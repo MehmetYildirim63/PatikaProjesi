@@ -1,0 +1,37 @@
+  <div *ngIf="!loading">
+      <div *ngIf="urunler.length>0; else noProduct ">
+         <ng-template [ngTemplateOutlet]="urunListesi" [ngTemplateOutletContext]="{urunler:urunler}"></ng-template>
+      </div>
+   </div>
+  <ng-template   #urunListesi let-urunler="urunler">
+    <div>
+      <div class="row">
+         <div class="col-md-3 mt-5" *ngFor="let urun of urunler"  >
+               <div  class="card mb-3  " style="width: 100%;height:100%;"> 
+                 <img src="./assets/patikaProjeresim/{{urun.urunResmi}}" class="card-img-top" alt="..." width="300" height="250" >
+                 <div class="card-body">
+                    <p class="card-title"><span style="font-weight:500;">{{urun.urunAd}}</span> &nbsp; {{urun.description}} <br> <span style="font-size:10px;">Saticı:{{urun.satici}}</span></p> 
+                    <p class="card-body"><span >{{urun.fiyat}} &nbsp; TL</span></p>
+                  </div>
+                  <div class="car-footer">
+                     <div style="float:right;"> 
+                       <a href="#" style="margin-right:5px;"><button class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></button></a>
+                       <a routerLink="/urunler/{{urun.id}}"><button class="btn btn-primary" > <i class="fa-sharp fa-solid fa-eye"></i></button></a>
+                     </div>
+                  </div>
+             </div>
+         </div>
+      </div>
+   </div>
+  </ng-template>
+  
+  <ng-template #noProduct>
+     <div class="alert alert-warning" >
+        <h1>ürün yok</h1>
+     </div>
+  </ng-template>
+  
+  <div *ngIf="loading" class="spinner-border text-primary" role="status">
+     <span class="visually-hidden">Loading...</span>
+  </div>
+  
