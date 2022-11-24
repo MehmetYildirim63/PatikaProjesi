@@ -10,13 +10,19 @@ import { OturumService } from '../services/oturum.service';
 export class NavbarComponent implements OnInit {
    
   isAuthenhicated: boolean =false;
+  isAdmin: boolean=false;
 
   constructor(private oturumservise:OturumService) { }
 
   ngOnInit(): void {
-    this.oturumservise.kullanici.subscribe(user => {
+    this.oturumservise.kullanici.subscribe(Kullanici => {
       this.isAuthenhicated=!!Kullanici
+      this.isAdmin=Kullanici?.email=="eren@gmail.com"
+  
     })
+  }
+  logout(){
+    this.oturumservise.logout();
   }
 
 }

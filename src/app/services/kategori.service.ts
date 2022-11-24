@@ -9,9 +9,9 @@ export class KategoriService {
 
   constructor(private htt:HttpClient) { }
 
-  getKategoriler(){
+  getKategoriler() :Observable<Kategori[]>{
   
-     return this.htt.get<Kategori[]>(this.url + "kategoriler.json")
+    return this.htt.get<Kategori[]>(this.url + "kategoriler.json")
                 .pipe(
                   map(data =>{
                     const kategoriler: Kategori[]=[]

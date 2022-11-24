@@ -12,22 +12,22 @@
         <li *ngIf="isAuthenhicated" class="nav-item">
           <a routerLink="/urunler" class="nav-link">Ürünler</a>
         </li>
-         <li *ngIf="isAuthenhicated" class="nav-item">
+         <li *ngIf="isAdmin" class="nav-item">
           <a routerLink="/urunler/ekleme" class="nav-link">ürün ekleme</a>
         </li>
-        <li *ngIf="isAuthenhicated" class="nav-item">
+        <li *ngIf="isAdmin" class="nav-item">
           <a routerLink="kategoriler/ekleme" class="nav-link">kategori ekleme</a>
         </li>
       </ul>
        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li *ngIf="!isAuthenhicated" class="nav-item">
-          <a routerLink="/oturum" class="nav-link">Giriş Yap</a>
+          <a routerLink="/oturum" class="nav-link">login</a>
         </li>
          <li *ngIf="!isAuthenhicated" class="nav-item">
-          <a routerLink="/oturum" class="nav-link">Kayıt Oluştur</a>
+          <a routerLink="/oturum" class="nav-link">Register</a>
         </li>
          <li *ngIf="isAuthenhicated" class="nav-item">
-          <a routerLink="/oturum" class="nav-link">Uygulamadan Çıkış Yap</a>
+          <a routerLink="/oturum" class="nav-link" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>

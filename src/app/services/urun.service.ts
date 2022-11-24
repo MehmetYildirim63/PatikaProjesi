@@ -1,14 +1,19 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { delay, map, Observable, tap } from "rxjs";
+import { delay, exhaustMap, map, Observable, take, tap } from "rxjs";
+import { Kullanici } from "../models/kullanici";
 import { Urun } from "../models/urun";
+import { OturumService } from "./oturum.service";
 //burasi bizim için local servis olarak oluşturduk
 // kompanent oluşturuldugunda bizim için getirilecek bir servis  injectable  etmek demek
 @Injectable()
 export class urunService{
  private url ='https://ng-shopapp-75742-default-rtdb.firebaseio.com/';
 
- constructor(private http: HttpClient){}
+ constructor(
+  private http: HttpClient,
+  private oturumService: OturumService
+  ){}
 
  getUrunler(kategoriId: number): Observable <Urun[]>{
      return this.http
@@ -41,7 +46,15 @@ export class urunService{
  }
 
  urunOlusturma(urun:Urun):Observable<Urun>{
-  return this.http.post<Urun>(this.url+"urunler.json",urun)
+
+   return this.oturumService.kullanici.pipe(
+    take(1),
+    tap(kullanici =>console.log(kullanici)),
+    exhaustMap(kullanici =>{
+      return this.http.post<Urun>(this.url+"urunler.json?auth=" +kullanici?.token,urun)
+    })
+  )
+  
  }
 
 }

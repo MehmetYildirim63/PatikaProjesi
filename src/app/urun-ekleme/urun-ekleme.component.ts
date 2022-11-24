@@ -54,13 +54,6 @@ export class UrunEklemeComponent implements OnInit {
       return;
     }
      
-     const extensions = ["jpeg,jpg","png"];
-     const extension =urunResmi.value.split(".").pop();
-
-     if(extensions.indexOf(extension)==-1){
-      this.error="Resim uzantisi sadece jpeg,jpg,png olmalidir";
-      return;
-    }
   
     const urun={
       id : 1,

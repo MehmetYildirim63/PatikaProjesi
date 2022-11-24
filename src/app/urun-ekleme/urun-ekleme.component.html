@@ -34,7 +34,7 @@
         <label for="kategoriId" class="form-label">kategori</label>
         <select #kategoriId name="kategoriId" id="kategoriId" class="form-select">
           <option value="0">---Kategori Seç---</option>
-          <option *ngFor="let kategori of kategoriler" value="">{{kategori.name}}</option>
+          <option *ngFor="let kategori of kategoriler" value="{{kategori.id}}">{{kategori.name}}</option>
 
         </select>
       </div>

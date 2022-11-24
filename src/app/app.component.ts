@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { OturumService } from './services/oturum.service';
 import { urunService } from './services/urun.service';
 
 @Component({
@@ -8,12 +9,12 @@ import { urunService } from './services/urun.service';
   styleUrls: ['./app.component.css'],
   providers:[urunService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
    
-   constructor(
-    private http: HttpClient,
-    private urunService:urunService
-    ){}
+   constructor(private oturumService: OturumService){}
+  ngOnInit(): void {
+    this.oturumService.autoLogin();
+  }
   
-  title = 'Ürün Kategorisi';
+  
  }
