@@ -24,6 +24,10 @@
       <label for="satici" class="form-label">Satici Firma Adi</label>
        <input type="text" #satici name="satici" id="satici" class="form-control">
     </div>
+      <div class="mb-3">
+      <label for="stock" class="form-label">Stok Sayisi</label>
+       <input type="text" #stock name="stock" id="stock" class="form-control">
+    </div>
     <div class="form-check mb-3" >
       <input class="form-check-input" type="checkbox" #isActive name="isActive" id="isActive">
       <label class="form-check-label" for="flexCheckDefault">
@@ -38,5 +42,5 @@
 
         </select>
       </div>
-      <button type="button" class="btn btn-primary" (click)="urunKaydet(urunAd,fiyat,urunResmi,description,isActive,kategoriId,satici)" > Ürün Kaydet</button>
+      <button type="button" class="btn btn-primary" (click)="urunKaydet(urunAd,fiyat,urunResmi,description,isActive,kategoriId,satici,stock)" > Ürün Kaydet</button>
   </form>

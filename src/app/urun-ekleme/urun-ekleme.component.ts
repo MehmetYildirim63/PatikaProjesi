@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Kategori } from '../models/kategori';
 import { KategoriService } from '../services/kategori.service';
-
 import { urunService } from '../services/urun.service';
 
 @Component({
@@ -27,7 +26,7 @@ export class UrunEklemeComponent implements OnInit {
       this.kategoriler=data
     })
   }
-  urunKaydet(urunAd:any,fiyat:any,urunResmi:any,description:any,isActive:any,kategoriId:any,satici:any){
+  urunKaydet(urunAd:any,fiyat:any,urunResmi:any,description:any,isActive:any,kategoriId:any,satici:any,stock:any){
 
     if(urunAd.value=='' || urunAd.value.lenght < 2){
       this.error="Ürün ismi en az iki karekterli olmalidir...";
@@ -56,14 +55,15 @@ export class UrunEklemeComponent implements OnInit {
      
   
     const urun={
-      id : 1,
-      urunAd : urunAd.value,
-      fiyat : fiyat.value,
-      urunResmi : urunResmi.value,
-      kategoriId :kategoriId.value,
-      description : description.value, 
-      satici : satici.value,
-      isActive   : isActive.checked 
+      id            : 1,
+      urunAd        : urunAd.value,
+      fiyat         : fiyat.value,
+      urunResmi     : urunResmi.value,
+      kategoriId    :kategoriId.value,
+      description   : description.value, 
+      stock         : stock.value,
+      satici        : satici.value,
+      isActive      : isActive.checked 
     }
     // bu kısımda biz firebase veri tabanında bir colection oluşturarak pos metodu sayesine veri gönderiyoruz 
       this.urunService.urunOlusturma(urun).subscribe(data=>{

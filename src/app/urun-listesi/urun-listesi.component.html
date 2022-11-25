@@ -11,11 +11,13 @@
                  <img src="./assets/patikaProjeresim/{{urun.urunResmi}}" class="card-img-top" alt="..." width="300" height="250" >
                  <div class="card-body">
                     <p class="card-title"><span style="font-weight:500;">{{urun.urunAd}}</span> &nbsp; {{urun.description}} <br> <span style="font-size:10px;">Saticı:{{urun.satici}}</span></p> 
-                    <p class="card-body"><span >{{urun.fiyat}} &nbsp; TL</span></p>
+                    <p class="card-body"><span >{{urun.fiyat}} &nbsp; TL</span> <br>
+                     <span >{{urun.stock}}</span>
+                  </p>
                   </div>
                   <div class="car-footer">
                      <div style="float:right;"> 
-                       <a href="#" style="margin-right:5px;"><button class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></button></a>
+                       <a  style="margin-right:5px;"><button class="btn btn-primary" (click)="addBasket()"><i class="fa-solid fa-cart-shopping"></i></button></a>
                        <a routerLink="/urunler/{{urun.id}}"><button class="btn btn-primary" > <i class="fa-sharp fa-solid fa-eye"></i></button></a>
                      </div>
                   </div>

@@ -15,7 +15,9 @@ import { UrunDetaySayfasiComponent } from './urun-detay-sayfasi/urun-detay-sayfa
 import { HttpClientModule } from '@angular/common/http';
 import { OturumComponent } from './oturum/oturum.component';
 import { UrunEklemeComponent } from './urun-ekleme/urun-ekleme.component';
-import { KategoriEklemeComponent } from './kategori-ekleme/kategori-ekleme.component'
+import { KategoriEklemeComponent } from './kategori-ekleme/kategori-ekleme.component';
+import { StoreModule } from '@ngrx/store'
+import { BasketsRecucer } from './state/sepetler/baskets.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,8 @@ import { KategoriEklemeComponent } from './kategori-ekleme/kategori-ekleme.compo
     CommonModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({"basketCount":BasketsRecucer})
 
   ],
   providers: [],

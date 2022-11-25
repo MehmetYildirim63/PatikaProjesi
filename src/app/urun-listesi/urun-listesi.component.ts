@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Urun } from '../models/urun';
 import { UrunRepository } from '../models/urun.repository';
 import { urunService } from '../services/urun.service';
@@ -21,7 +22,8 @@ export class UrunListesiComponent implements OnInit {
  
   constructor(
     private route:ActivatedRoute,
-    private urunService:urunService
+    private urunService:urunService,
+    private store:Store
     
     ) { 
     this.urunRepository=new UrunRepository();
@@ -40,7 +42,12 @@ export class UrunListesiComponent implements OnInit {
     });
    }
 
-
+   addBasket(){
+     this.store.dispatch(
+      {
+        "type": "[Baskets] Add Count"
+      })
+   }
  
 
 }    

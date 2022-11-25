@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Urun } from '../models/urun';
 import { urunService } from '../services/urun.service';
 // import { UrunRepository } from '../models/urun.repository';
@@ -18,7 +19,8 @@ export class UrunDetaySayfasiComponent implements OnInit {
 
   constructor(
     private route:ActivatedRoute,
-    private urunService:urunService
+    private urunService:urunService,
+    private store:Store
     ) {
     // this.urunRepository=new UrunRepository();
      }
@@ -35,6 +37,12 @@ export class UrunDetaySayfasiComponent implements OnInit {
       // this.urun=this.urunRepository.getUrunlerById(id)
     })
   }
+     addBasket(){
+     this.store.dispatch(
+      {
+        "type": "[Baskets] Add Count"
+      })
+   }
  
 
 }
