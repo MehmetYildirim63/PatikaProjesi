@@ -1,0 +1,13 @@
+.resim {
+  width: 100%;
+  height: 100%;
+  border: 3px solid black;
+}
+.resim:hover {
+  -ms-transform: scale(1.3); /* IE 9 */
+  -webkit-transform: scale(1.3); /* Safari 3-8 */
+  transform: scale(1.3);
+}
+.checked {
+  color: orange;
+}

@@ -1,33 +1,45 @@
-  
   <div class="separator-breadcrumb border-top mb-3"></div>
-  
- <div class="cart-entries-container">
-  <div>
-    <button class="clear-button action-button" (click)="clearEntries()">REMOVE ALL</button>
-  </div>
-  <div *ngFor="let entry of ( cartEntries$ | async )" class="cart-entry">
-    <div class="space"></div>
-    <div>
-      <img src="{{ entry.product.image }}">
-    </div>
-    <div class="entry-details">
-      <div class="product-name">
-        {{ entry.product.name }}
-      </div>
-      <div class="count">
-        Count: {{ entry.count }}
-      </div>
-      <div class="detail-button-row">
-        <div class="space"></div>
-        <div>
-          <button class="action-button detail-button" (click)="more(entry)">MORE</button>
-        </div>
-        <div>
-          <button class="action-button detail-button" (click)="less(entry)">LESS</button>
-        </div>
-      </div>
-    </div>
-    <div class="space"></div>
-  </div>
-</div>
 
+  <div class="container">
+    <div class="cart-entries-container">
+      <div style="float:right;">
+        <button class="clear-button action-button btn btn-outline-primary " (click)="clearEntries()">SEPET VE FİYAT
+          KISMINI SİL</button>
+      </div>
+      <div *ngFor="let entry of ( cartEntries$ | async )" class="cart-entry">
+        <div class="space"></div>
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <img src="./assets/patikaProjeresim/{{ entry.product.urunResmi }}">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="entry-details">
+              <div class="product-name">
+                {{ entry.product.urunAd }}
+              </div>
+              <div class="product-name">
+                {{ entry.product.description }}
+              </div>
+              <div class="count">
+                Adet Sayısı: {{ entry.count }}
+              </div>
+              <div class="detail-button-row">
+                <div class="space"></div>
+                <div>
+                  <button class="action-button detail-button btn btn-outline-primary" (click)="more(entry)"> <i
+                      class="fa-solid fa-plus"></i></button>
+                </div>
+                <div>
+                  <button class="action-button detail-button btn btn-outline-primary" (click)="less(entry)"><i
+                      class="fa-solid fa-minus"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space"></div>
+      </div>
+    </div>
+  </div>

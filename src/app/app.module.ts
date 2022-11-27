@@ -16,10 +16,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { OturumComponent } from './oturum/oturum.component';
 import { UrunEklemeComponent } from './urun-ekleme/urun-ekleme.component';
 import { KategoriEklemeComponent } from './kategori-ekleme/kategori-ekleme.component';
-import { StoreModule } from '@ngrx/store'
-import { BasketsRecucer } from './state/sepetler/baskets.reducer';
+import { StoreModule } from '@ngrx/store';
 import { SepetIslemleriComponent } from './sepet-islemleri/sepet-islemleri.component';
-import { cartReducer, metaReducerLocalStorage } from './cart-state-store/cart.reducer';
+import {
+  cartReducer,
+  metaReducerLocalStorage,
+} from './cart-state-store/cart.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,7 @@ import { cartReducer, metaReducerLocalStorage } from './cart-state-store/cart.re
     OturumComponent,
     UrunEklemeComponent,
     KategoriEklemeComponent,
-    SepetIslemleriComponent
+    SepetIslemleriComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,11 +44,12 @@ import { cartReducer, metaReducerLocalStorage } from './cart-state-store/cart.re
     NgbModule,
     FormsModule,
     HttpClientModule,
-    // StoreModule.forRoot({"basketCount":BasketsRecucer}),
-    StoreModule.forRoot({cartEntries:cartReducer},{ metaReducers:[metaReducerLocalStorage]} )
-
+    StoreModule.forRoot(
+      { cartEntries: cartReducer },
+      { metaReducers: [metaReducerLocalStorage] }
+    ),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

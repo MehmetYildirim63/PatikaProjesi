@@ -1,28 +1,49 @@
-   <div *ngIf="!loading">  
-     <div  class="card mb-3 " style="width: 100%;" *ngIf="urun else noProduct " > 
-         <img src="./assets/patikaProjeresim/{{urun.urunResmi}}" class="card-img-top" alt="..." width="300" height="250" >
-         <div class="card-body">
-            <p class="card-title"><span style="font-weight:500;">{{urun.urunAd}}</span> &nbsp; {{urun.description}} <br> <span style="font-size:10px;">Saticı:{{urun.satici}}</span></p> 
-            <p class="card-body">
-               <span >{{urun.fiyat}} &nbsp; TL</span> <br>
-               <span >{{urun.stock}}</span>
-            </p>
-          </div>
-          <div class="car-footer">
-             <div style="float:right;"> 
-               <a style="margin-right:5px;"><button class="btn btn-primary" (click)="addBasket()"><i class="fa-solid fa-cart-shopping"></i></button></a>
-               <a  routerLink="/urunler" ><button class="btn btn-primary"><i class="fa-solid fa-circle-xmark"></i></button></a>
-             </div>
-          </div>
+   <ng-template #noProduct>
+     <div class="alert alert-warning">
+       <h1>ürün yok</h1>
      </div>
-   </div>   
-     <ng-template #noProduct>
-     <div class="alert alert-warning" >
-        <h1>ürün yok</h1>
-     </div>
-  </ng-template>
-  
-    <div *ngIf="loading" class="spinner-border text-primary" role="status">
+   </ng-template>
+
+   <div *ngIf="loading" class="spinner-border text-primary" role="status">
      <span class="visually-hidden">Loading...</span>
-  </div>
-  
+   </div>
+
+   <div *ngIf="!loading">
+     <div class="card mb-3 " style="width: 100%;" *ngIf="urun else noProduct ">
+       <div class="row">
+         <div class="col-md-6 mt-3" style="overflow: hidden;">
+           <div class="resim"><img src="./assets/patikaProjeresim/{{urun.urunResmi}}" class="card-img-top" alt="..."
+               width="500" height="350"></div>
+         </div>
+         <div class="col-md-6">
+           <div class="card-body">
+             <p class="card-title" style="font-size:18px;"><span
+                 style="font-weight:500;text-transform: uppercase;">{{urun.urunAd}}</span> &nbsp;
+               {{urun.description}} <br> <span style="font-size:14px;">Satıcı: <u>{{urun.satici}}</u> </span>
+             </p>
+             <div>
+               <span class="fa fa-star checked"></span>
+               <span class="fa fa-star checked"></span>
+               <span class="fa fa-star checked"></span>
+               <span class="fa fa-star checked"></span>
+               <span class="fa fa-star"></span> &nbsp;
+               <span>3 Değerlendirme <i class="fa-solid fa-camera-retro"></i> | &nbsp; 7 soru Cevap </span>
+             </div>
+             <p class="card-body">
+               <span>Stok Sayısı: <span style="color:blue;font-weight:600">{{urun.stock}}</span> Adet
+                 Bulunmaktadır!</span><br> <br>
+               <span style="margin-left:25%;"> <span style="font-weight:700;font-size:20px">{{urun.fiyat}}</span>
+                 &nbsp;TL</span> </p>
+           </div>
+         </div>
+         <div class="card-footer" style="border:none">
+           <div style="float:right;">
+             <a style="margin-right:5px;"><button class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i>
+                 &nbsp; Sepete Ekle</button></a>
+             <a routerLink="/urunler"><button class="btn btn-primary"><i class="fa-solid fa-circle-xmark"></i>
+               </button></a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>

@@ -1,6 +1,5 @@
   <h3>Ürün Ekleme</h3>
-  
-  <form >
+  <form>
     <div class="alert alert-danger" *ngIf="error">
       {{error}}
     </div>
@@ -18,29 +17,29 @@
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Açıklama</label>
-      <textarea #description name="description" id="description" class="form-control" ></textarea>
+      <textarea #description name="description" id="description" class="form-control"></textarea>
     </div>
     <div class="mb-3">
       <label for="satici" class="form-label">Satici Firma Adi</label>
-       <input type="text" #satici name="satici" id="satici" class="form-control">
+      <input type="text" #satici name="satici" id="satici" class="form-control">
     </div>
-      <div class="mb-3">
+    <div class="mb-3">
       <label for="stock" class="form-label">Stok Sayisi</label>
-       <input type="text" #stock name="stock" id="stock" class="form-control">
+      <input type="text" #stock name="stock" id="stock" class="form-control">
     </div>
-    <div class="form-check mb-3" >
+    <div class="form-check mb-3">
       <input class="form-check-input" type="checkbox" #isActive name="isActive" id="isActive">
       <label class="form-check-label" for="flexCheckDefault">
         isActive
       </label>
     </div>
-     <div class="mb-3">
-        <label for="kategoriId" class="form-label">kategori</label>
-        <select #kategoriId name="kategoriId" id="kategoriId" class="form-select">
-          <option value="0">---Kategori Seç---</option>
-          <option *ngFor="let kategori of kategoriler" value="{{kategori.id}}">{{kategori.name}}</option>
-
-        </select>
-      </div>
-      <button type="button" class="btn btn-primary" (click)="urunKaydet(urunAd,fiyat,urunResmi,description,isActive,kategoriId,satici,stock)" > Ürün Kaydet</button>
+    <div class="mb-3">
+      <label for="kategoriId" class="form-label">kategori</label>
+      <select #kategoriId name="kategoriId" id="kategoriId" class="form-select">
+        <option value="0">---Kategori Seç---</option>
+        <option *ngFor="let kategori of kategoriler" value="{{kategori.id}}">{{kategori.name}}</option>
+      </select>
+    </div>
+    <button type="button" class="btn btn-primary"
+      (click)="urunKaydet(urunAd,fiyat,urunResmi,description,isActive,kategoriId,satici,stock)"> Ürün Kaydet</button>
   </form>

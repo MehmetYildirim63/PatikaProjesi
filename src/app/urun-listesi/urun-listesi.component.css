@@ -1,0 +1,6 @@
+/* bu kısımda resime hover özelligi ile üstüne gelindiginde resim büyümesini saglıyor */
+.card-img-top:hover {
+  -ms-transform: scale(1.3); /* IE 9 */
+  -webkit-transform: scale(1.3); /* Safari 3-8 */
+  transform: scale(1.3);
+}
