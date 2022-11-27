@@ -31,3 +31,9 @@ veritabanına ürün ekliyererek verileri orada depoladım daha sonra depoladıg
 ##sepet Kısmı:
 sepet kısmında ürünleri sepete ekleyip daha sonra sepette arttırıp azaltma işlemini yapabildim.
 Buradada projede bulunan cart.actions.ts ,cart.reducer.ts ,cart.selectors.ts sayfalarında işlem yaptım daha sonra yapmış oldugum işlemleri sepet-islemleri.companent.ts de kullandım.
+
+#Kullandıgım bazı API ler ve paketler
+ng add @ngrx/store@latest
+ npm i bootstrap@5.2.2
+ ng add @angular/material
+
