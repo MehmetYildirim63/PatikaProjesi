@@ -29,3 +29,4 @@ export class AdminGuard implements CanActivate {
     );
   }
 }
+//Bu kisimda linklerimizi korudugumuz kısım yani belli kurallara göre linklerimize ulaşabliyoruz bunuda html ksminda ngif ile saglıyoruz.

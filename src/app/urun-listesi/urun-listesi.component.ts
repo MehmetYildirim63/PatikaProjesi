@@ -30,7 +30,7 @@ export class UrunListesiComponent implements OnInit {
   ngOnInit(): void {
     //bir ürünün detay kısmına geçmemizi saglayan kisim
     //  bu kisimda firebase de kaıtli verileri HttpClient ile get metodu ile listeliyecegim
-    // bu kisimda daha önceden oluşturmuş oldugum listedeki id firebase ki id ye eşitledim bu şekilde daha rahat veileri push'lıyabilirim
+    // bu kisimda daha önceden oluşturmuş oldugum listedeki id firebase ki id ye eşitledim bu şekilde daha rahat verileri push'lıyabilirim
     this.route.params.subscribe((params) => {
       this.loading = true;
       this.urunService.getUrunler(params['kategoriId']).subscribe((data) => {
