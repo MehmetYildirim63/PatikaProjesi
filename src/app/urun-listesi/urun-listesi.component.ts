@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { addProduct } from '../cart-state-store/cart.actions';
 import { Urun } from '../models/urun';
 import { UrunRepository } from '../models/urun.repository';
 import { urunService } from '../services/urun.service';
@@ -48,7 +49,10 @@ export class UrunListesiComponent implements OnInit {
         "type": "[Baskets] Add Count"
       })
    }
- 
+   
+  public buyProduct(product:Urun){
+      this.store.dispatch(addProduct(product))
+  }
 
 }    
       

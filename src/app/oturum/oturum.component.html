@@ -15,7 +15,7 @@
         </div>
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-primary" [disabled]="form.invalid">{{isLoginMode ? "Giriş Yap":"Kullanıcı oluştur"}}</button>
-          <button type="button" class="btn btn-outline-primary" (click)="toogleMode()">{{isLoginMode ? "Hesabım Bulunmakta": "Hesap Oluştur"}}</button>
+          <button type="button" class="btn btn-outline-primary" (click)="toogleMode()">{{isLoginMode ? "Hesabım Bulunmakta": "Hesabım Var Zaten"}}</button>
         </div>
         
         <div *ngIf="loading" class="spinner-border text-primary" role="status">

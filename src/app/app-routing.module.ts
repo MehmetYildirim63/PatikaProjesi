@@ -5,6 +5,7 @@ import { AnasayfaComponent } from './anasayfa/anasayfa.component';
 import { AdminGuard } from './guards/admin-guard';
 import { KategoriEklemeComponent } from './kategori-ekleme/kategori-ekleme.component';
 import { OturumComponent } from './oturum/oturum.component';
+import { SepetIslemleriComponent } from './sepet-islemleri/sepet-islemleri.component';
 import { UrunDetaySayfasiComponent } from './urun-detay-sayfasi/urun-detay-sayfasi.component';
 import { UrunEklemeComponent } from './urun-ekleme/urun-ekleme.component';
 import { UrunListesiComponent } from './urun-listesi/urun-listesi.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
    {
     path:'oturum',
     component:OturumComponent
+   },
+      {
+    path:'sepet',
+    component:SepetIslemleriComponent
    } 
 
 

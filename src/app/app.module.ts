@@ -18,6 +18,8 @@ import { UrunEklemeComponent } from './urun-ekleme/urun-ekleme.component';
 import { KategoriEklemeComponent } from './kategori-ekleme/kategori-ekleme.component';
 import { StoreModule } from '@ngrx/store'
 import { BasketsRecucer } from './state/sepetler/baskets.reducer';
+import { SepetIslemleriComponent } from './sepet-islemleri/sepet-islemleri.component';
+import { cartReducer, metaReducerLocalStorage } from './cart-state-store/cart.reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import { BasketsRecucer } from './state/sepetler/baskets.reducer';
     UrunDetaySayfasiComponent,
     OturumComponent,
     UrunEklemeComponent,
-    KategoriEklemeComponent
+    KategoriEklemeComponent,
+    SepetIslemleriComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { BasketsRecucer } from './state/sepetler/baskets.reducer';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.forRoot({"basketCount":BasketsRecucer})
+    // StoreModule.forRoot({"basketCount":BasketsRecucer}),
+    StoreModule.forRoot({cartEntries:cartReducer},{ metaReducers:[metaReducerLocalStorage]} )
 
   ],
   providers: [],
