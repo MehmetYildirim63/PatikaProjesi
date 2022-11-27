@@ -1,6 +1,7 @@
 # PatikaProje
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+Bu proje bir web angular dili ile yazılmış bir web sitesi örnegidir
 
 ## Development server
 
