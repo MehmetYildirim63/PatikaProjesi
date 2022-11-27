@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { addProduct } from '../cart-state-store/cart.actions';
 import { Urun } from '../models/urun';
 import { urunService } from '../services/urun.service';
 // import { UrunRepository } from '../models/urun.repository';
@@ -32,5 +33,8 @@ export class UrunDetaySayfasiComponent implements OnInit {
         this.loading = false;
       });
     });
+  }
+  public buyProduct(product: Urun) {
+    this.store.dispatch(addProduct(product));
   }
 }
